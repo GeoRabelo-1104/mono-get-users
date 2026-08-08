@@ -1,5 +1,20 @@
-import http from 'node:http'; // módulo nativo do node para servidores 
+import http from 'node:http';
 
-http.createServer(() => {
-    console.log('Knocked on the door.') // quando alguém bater na porta 3000, será mostrado no nosso console a mensagem.
-}).listen(3000); // por convenção, a porta utilizada para backend é 3000 ou 3333. As demais estão em uso pelo proprio OS.
+const users = [{
+    user: 'Geovanne',
+    email: 'geovanne@email.com'
+}, {
+    user: 'Vitoria',
+    email: 'vitoria@email.com'
+}, {
+    user: 'Georgia',
+    email: 'georgia@email.com'
+}];
+
+http.createServer((request, response) => {
+    response.writeHead(
+        200, 
+        { "content-type": "application/json" }
+    );
+    response.end(JSON.stringify(users)); // transforma array em JSON e .end() mostra na tela a resposta
+}).listen(3000);
