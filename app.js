@@ -14,15 +14,11 @@ button.addEventListener('click', async (event) => {
     // A partir de async/await, o JS se torna assincrono (espera algo)
     console.log(data);
 
-    let found = false;
+    const user = data.find(user => user.email === inputValue);
 
-    for (let i = 0; i < data.length; i++) {
-        if (inputValue === data[i].email) {
-            paragraph.textContent = `Usuário ${data[i].user} encontrado!`
-            found = true;
-            break;
-        }
-
-        if (!found) paragraph.textContent = 'Usuário não encontrado.'
+    if (!user) {
+        return paragraph.textContent = `Usuário não encontrado.`;
     }
+
+    paragraph.textContent = `Usuário ${user.user} encontrado.`;
 } );
