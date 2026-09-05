@@ -1,12 +1,15 @@
 const users = [{
-    user: 'Geovanne',
-    email: 'geovanne@email.com'
+    name: 'Geovanne',
+    email: 'geovanne@email.com',
+    password: '1234'
 }, {
-    user: 'Vitoria',
-    email: 'vitoria@email.com'
+    name: 'Vitoria',
+    email: 'vitoria@email.com',
+    password: '1234'
 }, {
-    user: 'Georgia',
-    email: 'georgia@email.com'
+    name: 'Georgia',
+    email: 'georgia@email.com',
+    password: '1234'
 }];
 
 export default users;
