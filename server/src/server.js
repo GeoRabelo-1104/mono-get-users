@@ -1,10 +1,11 @@
 import http from 'node:http';
 import userRouter from './routes/user.route.js'
+import productRouter from './routes/product.route.js'
 
 http.createServer((request, response) => {
     response.setHeader('Access-Control-Allow-Origin', '*');
 
-    if (request.url !== '/users') {
+    if (request.url !== '/users' && request.url !== '/products') {
         response.writeHead(
             404,
             { 'content-type': 'application/json' }
@@ -16,6 +17,10 @@ http.createServer((request, response) => {
         return;
     }
 
-    userRouter(request, response);
-
+    if (request.url === '/users') {
+        userRouter(request, response);
+    } else if (request.url === '/products') {
+        productRouter(request, response);
+    }
+    
 }).listen(3000);
